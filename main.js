@@ -9,4 +9,9 @@ app.use(bodyparser.json());
 
 app.use(customer.router);
 
-app.listen(process.env.PORT || 3000);   //LISTEN to port 3000
+// When deployed to cloud, it will 
+// randomly assign to us some random port, 
+// therefore we need the process.env.port
+app.listen(process.env.PORT || 3000, () => {
+    console.log(`Backend listening at http://localhost:`+'3000');
+  }); // Listen to port 5000
